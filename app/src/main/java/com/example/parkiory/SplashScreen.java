@@ -10,12 +10,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class SplashScreen extends AppCompatActivity {
 
     private ImageView logo;
     private TextView title;
 
     Animation topAnimation, bottomAnimation;
+    LottieAnimationView lottie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +28,15 @@ public class SplashScreen extends AppCompatActivity {
         logo = findViewById(R.id.logo);
         title = findViewById(R.id.title);
 
+        lottie = findViewById(R.id.lottie);
+
         topAnimation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnimation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
         logo.setAnimation(topAnimation);
         title.setAnimation(bottomAnimation);
+
+        lottie.animate().translationX(2000).setDuration(2000).setStartDelay(2900);
 
         int SPLASH_SCREEN = 4300;
 
